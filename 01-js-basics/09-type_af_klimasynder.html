@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+
+    <!--<p> Hvor mage timer har du fløjet?</p>
+<input type="text" id="timer">
+<button>Klik og se dit</button>-->
+
+
+
+
+    <script>
+        // = document.querySelector("#timer").value
+
+        let timer = 1;
+        let co2UdledtIKgVedFlyrejse = timer * 109;
+        let type;
+
+
+        if (co2UdledtIKgVedFlyrejse < 100) {
+            type = "Tæt på Thunberg";
+        } else if (co2UdledtIKgVedFlyrejse >= 100 && co2UdledtIKgVedFlyrejse < 200) {
+            type = "Ja ja, du behøver ikke at melde dig ud af Å!";
+        } else if (co2UdledtIKgVedFlyrejse >= 200 && co2UdledtIKgVedFlyrejse < 600) {
+            type = "Det er godt for turismen i nordeuropa.";
+        } else {
+            type = "Nå ja vi kan jo altid kolonisere en anden planet ...";
+        }
+
+
+
+        console.log(`Ved ${timer} timers flyrejse har du udledt ${co2UdledtIKgVedFlyrejse} kg CO2`);
+        console.log(type);
+    </script>
+</body></html>
