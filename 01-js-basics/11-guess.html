@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+
+    <p> Hvilket tal tror du vi tænker på?</p>
+    <input type="text" id="guess">
+    <button>Klik når du har et bud!</button>
+
+
+
+
+    <script>
+        let answer = Math.round(Math.random() * 20);
+        let tries = 0;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            console.log("bob")
+
+            let guess = document.querySelector("#guess").value;
+            document.querySelector("button").removeEventListener("click", buttonClicked);
+            tries++;
+
+            if (isNaN(guess)) {
+                console.log(`Hey jeg tror det er lettest hvis du bruger tal...`);
+                document.querySelector("button").addEventListener("click", buttonClicked);
+            } else if (guess < answer) {
+                console.log("Desværre ven, det var sgu for lavt! Prøv igen!");
+                document.querySelector("button").addEventListener("click", buttonClicked);
+            } else if (guess > answer) {
+                console.log("Arrrrhhhh det var lige i overkanten! Prøv med et lavere tal!");
+                document.querySelector("button").addEventListener("click", buttonClicked);
+
+            } else {
+                console.log(`Tillykke du gættede det på ${tries} forsøg! Vil du prøve igen?`);
+            }
+
+
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>
