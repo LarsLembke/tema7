@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+
+    <p> hvor gammel er du?</p>
+    <input type="text" id="alder">
+    <p>hvor gammel er din date</p>
+    <input type="text" id="date_alder">
+    <button>er i et godt match?</button>
+
+
+
+
+    <script>
+        let tries = 0;
+
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+
+            let alder = document.querySelector("#alder").value;
+            let dateAlder = document.querySelector("#date_alder").value;
+            let matchAlderYoung = Math.round(alder / 2 + 7);
+            let matchAlderOld = Math.round((alder - 7) * 2);
+
+            console.log(matchAlderYoung + " og " + matchAlderOld);
+            document.querySelector("button").removeEventListener("click", buttonClicked);
+
+
+            if (isNaN(alder)) {
+                console.log(`Hey jeg tror det er lettest hvis du bruger tal for din alder...`);
+                document.querySelector("button").addEventListener("click", buttonClicked);
+            } else if (isNaN(dateAlder)) {
+                console.log(`Hey jeg tror det er lettest hvis du bruger tal for din dates alder...`);
+                document.querySelector("button").addEventListener("click", buttonClicked);
+            } else if (alder < 15 || dateAlder < 15) {
+                console.log("Arrrhhhh du, man skal være 15 for at kunne date");
+            } else if (dateAlder < matchAlderYoung) {
+                console.log("Du er sgu for gammel til dem ven...")
+            } else if (dateAlder > matchAlderOld) {
+                console.log("De for gamle til dig kammerat...")
+            } else {
+                console.log("Go for it!!! god alder ja!")
+            }
+
+
+
+
+
+        }
+    </script>
+</body></html>
