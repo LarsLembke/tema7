@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+    <main></main>
+
+    <template>
+        <article>
+            <h2 class="mærke"></h2>
+            <h3 class="type"></h3>
+            <p class="motor"></p>
+            <p class="km"></p>
+            <p>Udstyr: </p>
+            <ul class="udstyr"></ul>
+        </article>
+    </template>
+
+
+
+    <script>
+        const fil = "biler.json";
+
+
+        // document.addEventListener("DOMContentLoaded", function() {
+        console.log("DOMLoaded");
+
+        async function hentData(fil) {
+            console.log("hentData");
+            const resultat = await fetch(fil);
+            const json = await resultat.json();
+            vis(json);
+        }
+
+
+        function vis(json) {
+            console.log("vis json");
+
+            const main = document.querySelector("main");
+            const template = document.querySelector("template");
+
+            json.forEach(biler => {
+                console.log("forEach1");
+
+                const klon = template.cloneNode(true).content;
+                klon.querySelector(".mærke").textContent = biler.mærke;
+                klon.querySelector(".type").textContent = biler.model;
+                klon.querySelector(".motor").textContent = biler.motor;
+                klon.querySelector(".km").textContent = biler.km;
+
+                biler.udstyr.forEach(gear => {
+                    klon.querySelector(".udstyr").innerHTML += "<li>" + gear + "</li>"
+                })
+
+                main.appendChild(klon);
+                console.log("append");
+            });
+        }
+
+        hentData(fil);
+
+
+
+
+
+
+
+
+
+        // });
+    </script>
+</body></html>
