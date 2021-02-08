@@ -37,9 +37,10 @@
 </head>
 
 <body>
+    <h1>Alle</h1>
     <nav>
-        <button data-troende="alle">Alle</button>
-        <button data-troende="ja" class="valgt">Troende</button>
+        <button data-troende="alle" class="valgt">Alle</button>
+        <button data-troende="ja">Troende</button>
         <button data-troende="nej">Ikke troende</button>
         <button data-troende="tvivler">Tvivler</button>
     </nav>
@@ -56,7 +57,6 @@
 
 
     <script>
-        const header = document.querySelector("header h1");
         const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
         const myHeaders = {
 
@@ -64,14 +64,32 @@
         }
         document.addEventListener("DOMContentLoaded", start)
         let personer;
-        let filter = "ja";
+        let filter = "alle";
+        const header = document.querySelector("h1");
 
 
         // første funktion der kaldes efter DOM er loaded
         function start() {
 
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerPersoner));
+
             loadJSON();
         }
+
+
+        function filtrerPersoner() {
+            filter = this.dataset.troende;
+
+            document.querySelector(".valgt").classList.remove("valgt");
+            this.classList.add("valgt");
+
+
+            visPersoner();
+            header.textContent = this.textContent;
+        }
+
+
 
         async function loadJSON() {
             const JSONData = await fetch("https://persongalleri-5d3e.restdb.io/rest/persongalleri", {
@@ -88,11 +106,13 @@
             const dest = document.querySelector("#liste"); // container til articles med en person
             const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
 
+            dest.textContent = "";
+
             personer.forEach(person => {
 
-                if (filter == person.troende) {
+                if (filter == person.troende || filter == "alle") {
 
-                    console.log("troende");
+
 
                     // loop igennem json (personer)
                     const klon = skabelon.cloneNode(true);
