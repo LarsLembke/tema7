@@ -29,7 +29,6 @@
             background-color: #0397cc;
             border-radius: 5px;
         }
-
     </style>
 </head>
 
@@ -79,7 +78,6 @@
             }
         }
 
-        const header
 
 
         document.addEventListener("DOMContentLoaded", start);
@@ -145,6 +143,7 @@
                     klon.querySelector(".kategori").textContent = retterne.kategori;
                     klon.querySelector(".kortbeskrivelse").textContent = retterne.kortbeskrivelse;
                     klon.querySelector(".pris").textContent = retterne.pris;
+                    klon.querySelector(".ret_container").addEventListener("click", () => visRet(retterne));
                     dest.appendChild(klon);
 
 
@@ -153,7 +152,8 @@
 
         }
 
+        function visRet(retten) {
+            location.href = `babushka-single.html?id=${retten._id}`;
+        }
     </script>
-</body>
-
-</html>
+</body></html>
