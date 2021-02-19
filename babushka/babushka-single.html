@@ -1,13 +1,120 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/njl0ruu.css">
     <title></title>
     <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+        }
+
+        header {
+            background-color: #CE6A6A;
+            text-align: center;
+            padding-bottom: 1vw;
+            font-family: franklin-gothic-atf, sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 4rem;
+            color: #FFD31A;
+        }
+
+        p,
+        h3,
+        h4 {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        p {
+            padding: 0vw 0vw 1vw 0vw;
+            font-weight: 200;
+        }
+
+        .oprindelsesregion {
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .pris {
+            font-weight: 600;
+        }
+
+        h3 {
+            text-align: center;
+            padding: 2vw;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            text-align: center;
+            padding-bottom: 1vw;
+            text-transform: capitalize;
+        }
+
+        body {
+            background-color: #e5afa2;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        hr {
+            color: black;
+            background-color: black;
+            border-color: black;
+            margin: 1vw 0vw;
+        }
+
+        article {
+            margin: 4vw 20vw;
+            max-width: 50vw;
+            background-color: #eddcb5;
+            padding: 5vw;
+        }
+
+
+        button {
+            font-size: 1.3rem;
+            border: 1px solid black;
+            background-color: #FFD31A;
+            padding: 10px;
+            width: 300px;
+            margin: 3vw 0vw 0vw 5vw;
+        }
+
+        button:hover {
+            background-color: #FFD31A;
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            margin: 2vw;
+        }
+
+        footer a {
+
+            color: #d13e23;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        </sty
+
+    </style>
 </head>
 
 <body>
+    <header>
+        <h1>BISTRO BABUSHKA</h1>
+    </header>
 
     <button>Tilbage</button>
 
@@ -15,11 +122,18 @@
         <img src="" alt="" class="billede">
         <h3 class="navn"></h3>
         <h4 class="kategori"></h4>
+        <hr>
         <p class="oprindelsesregion"></p>
+
         <p class="kortbeskrivelse"></p>
         <p class="langbeskrivelse"></p>
         <p class="pris"></p>
     </article>
+
+    <footer>
+
+        <a href="https://www.freepik.com/vectors/floral">Russiandoll vector created by macrovector - www.freepik.com</a>
+    </footer>
 
 
 
@@ -54,11 +168,17 @@
             document.querySelector(".navn").textContent = ret.navn;
             document.querySelector(".billede").src = medieurl + ret.billede;
             document.querySelector(".langbeskrivelse").textContent = ret.langbeskrivelse;
+            document.querySelector(".oprindelsesregion").textContent = ret.oprindelsesregion;
+            document.querySelector(".kategori").textContent = ret.kategori;
+            document.querySelector(".pris").textContent = ret.pris + " DKK";
             document.querySelector("button").addEventListener("click", tilbageTilLoop);
         }
 
         function tilbageTilLoop() {
             history.back();
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

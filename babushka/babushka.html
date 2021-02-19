@@ -4,49 +4,145 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <title>Bistro Babushka</title>
     <style>
+        * {
+            margin: 0;
+
+        }
+
+        p,
+        h3,
+        h4 {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            background-color: #eddcb5;
+        }
+
         section {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             grid-gap: 5px;
+            margin: 0px 3vw;
 
         }
 
         img {
+            display: block;
             max-width: 100%;
+
         }
 
         article {
-            border: 1px solid black;
+            border: 3px solid #076d0f;
             padding: 5px;
 
 
         }
 
-        .valgt {
-            color: white;
-            background-color: #0397cc;
-            border-radius: 5px;
+        header {
+
+            background-color: #e5afa2;
+            margin-bottom: 2vw;
         }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2vw;
+            background-color: #CE6A6A;
+        }
+
+        button {
+            font-size: 1.3rem;
+            border: 1px solid black;
+            background-color: #e5afa2;
+            padding: 10px;
+            width: 300px;
+            margin: 0px 5vw;
+        }
+
+        button:hover {
+            color: white;
+            background-color: #933434;
+            transform: scale(1.1);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 2vw;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 800;
+        }
+
+        .valgt {
+            color: black;
+            background-color: #FFD31A;
+        }
+
+        .valgt:hover {
+            color: black;
+            background-color: #FFD31A;
+            transform: scale(1.1);
+        }
+
+        #splash {
+            width: 100%;
+            height: 33vw;
+            background-image: url(babushka_splash.svg);
+            background-size: cover;
+        }
+
+        footer {
+            text-align: center;
+            margin: 2vw;
+        }
+
+        footer a {
+
+            color: #cb900a;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        @media (max-width: 600px) {
+            button {
+                font-size: 1.3rem;
+                border: 1px solid black;
+                background-color: #e5afa2;
+                padding: 1px 10px;
+                width: 200px;
+                margin: 0px 1vw;
+            }
+        }
+
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Babushka</h1>
+        <div id="splash"></div>
+        <!--        <h1>Babushka</h1>-->
         <nav>
             <button data-kategori="alle" class="valgt">Alle</button>
             <button data-kategori="forretter">Foretter</button>
             <button data-kategori="hovedretter">Hovedretter</button>
             <button data-kategori="desserter">Desserter</button>
         </nav>
-        <h2></h2>
     </header>
     <main>
+        <h2></h2>
+
         <section id="liste"></section>
     </main>
-    <footer></footer>
+    <footer>
+        <a href="https://www.freepik.com/vectors/floral">Russiandoll vector created by macrovector - www.freepik.com</a>
+    </footer>
 
 
 
@@ -78,6 +174,8 @@
             }
         }
 
+        const header = document.querySelector("h2");
+
 
 
         document.addEventListener("DOMContentLoaded", start);
@@ -102,7 +200,7 @@
 
 
             visMad(retter);
-            //header.textContent = this.textContent;
+            header.textContent = this.textContent;
         }
 
 
@@ -155,5 +253,8 @@
         function visRet(retten) {
             location.href = `babushka-single.html?id=${retten._id}`;
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
